@@ -31,8 +31,23 @@ void InitGL ( GLvoid )     // Inicializamos parametros
 	//glEnable ( GL_COLOR_MATERIAL );
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 }
+/*Funcion que dibuja un prisma rectangular, recibe como parametros, el RGB de cada cara, la base y la altura
+void prisma(float sr,float sg,float sb, float ir, float ig, float ib, float dr, float dg, float db, float izr, float izg, float izb, float fr, float fg, float fb, float ar, float ag, float ab, float b,float h)
+Todos los valores pueden ser flotantes o enteros
 
-void prisma(float sr,float sg,float sb, float ir, float ig, float ib, float dr, float dg, float db, float izr, float izg, float izb, float fr, float fg, float fb, float ar, float ag, float ab, int b,int h)
+sr,sg,sb son los tres colores para pintar la cara superior
+ir,ig,ib son los tres colores para pintar la cara inferior
+dr,dg,db son los tres colores para pintar la cara derecha
+izr,izg,izb son los tres colores para pintar la cara izquierda
+fr,fg,gb son los tres colores para pintar la cara frontal
+ar,ag,ab son los tres colores para pintar la cara de abajo
+b es la variable que modifica la base
+h es la variable que modifica la altura
+
+
+*/
+
+void prisma(float sr,float sg,float sb, float ir, float ig, float ib, float dr, float dg, float db, float izr, float izg, float izb, float fr, float fg, float fb, float ar, float ag, float ab, float b,float h)
 {//orden en el que se esta dibujando el prisma 
 	GLfloat vertice [8][3] = {
 				{0.5*b ,-0.5*h, 0.5},    //Coordenadas Vértice 0 V0
@@ -107,7 +122,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	glRotatef(angleY, 0.0, 1.0, 0.0);
 	glRotatef(angleZ, 0.0, 0.0, 1.0);
 	glTranslatef(0.0 + transX, 0.0 + transZ, -5.0 + transY); //transalada el objeto
-	//Prisma
+	//Se invoca la funcion prisma 
 	
 	prisma(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1, 2);
 	/*
